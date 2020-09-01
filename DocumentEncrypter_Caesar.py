@@ -1,5 +1,5 @@
 def encrypt(text, level):
-    encryptedText = " "
+    encryptedText = ""
 
     # Visits all letters in the text
     for i in range(len(text)):
@@ -11,7 +11,12 @@ def encrypt(text, level):
             #
             encryptedText += chr((ord(char) + level - 65) % 26 + 65)
         else:
-            encryptedText += chr((ord(char) + level - 97) % 26 + 97)
+            #If it is a space
+            if(ord(char) == 32):
+                encryptedText += chr(33)
+            #If it isn't a space
+            else:
+                encryptedText += chr((ord(char) + level - 97) % 26 + 97)
     return encryptedText
 
 
